@@ -1,0 +1,222 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Records</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <script>
+     $( document ).ready(function() {
+
+    initEvents();
+
+});
+
+function initEvents() {
+
+    $(".list").hover(function(){
+
+        $(".list li:first span").stop().animate({borderWidth: "5", backgroundColor: "#3f3659", color: "#e5e3e8"},{duration: 170, complete: function() {}} );
+
+    }, function () {
+
+        $(".list li:first span").stop().animate({borderWidth: "2", backgroundColor: "#201c2b", color: "#b8b5c0"},{duration: 170, complete: function() {}} );
+
+    });
+
+}
+
+function animateTable(e) {
+
+
+
+
+}
+ </script>
+    <style>
+
+.container {
+
+    width: 100%;
+    height: 70%;
+    background-color: #d4d3e4;
+    padding: 20px;
+
+
+}
+
+.listWrap {
+
+    height: 800px;
+    width: 100%;
+
+}
+
+.list {
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: table;
+    white-space: nowrap;
+    width: 100%;
+
+
+}
+
+.list li {
+
+    background-color: #f0f0f0;
+    display: table-row;
+    color: #5c5c5c;
+
+}
+
+.list li:nth-child(odd) {
+
+    background-color: #f2f2f2;
+    display: table-row;
+    font-size: 9pt;
+    color: #5c5c5c;
+
+}
+
+.list li:nth-child(odd):hover {
+
+    background-color: #dadada;
+
+}
+
+.list li:nth-child(even) {
+
+    background-color: #e8e8e8;
+    display: table-row;
+    font-size: 9pt;
+    color: #5c5c5c;
+
+}
+
+.list li:nth-child(even):hover {
+
+    background-color: #dadada;
+
+}
+
+.list li:nth-child(1) span:first-child {
+
+    border-top-left-radius: 6px;
+
+}
+
+.list li:nth-child(1) span:last-child {
+
+    border-top-right-radius: 6px;
+
+}
+
+
+.list li:nth-child(1) {
+
+    background-color: #201c2b;
+    text-transform: uppercase;
+    font-size: 8pt;
+    font-weight: bold;
+    color: #b8b5c0;
+
+
+}
+
+.list li:nth-child(1):hover {
+
+
+
+}
+
+
+
+.list li:nth-child(1) span {
+
+    border-bottom: 2px solid #7d5bbe;
+    padding: 14px;
+
+}
+
+.list span {
+
+    text-align: left;
+    display: table-cell;
+    padding: 6px;
+    vertical-align: middle;
+
+}
+
+
+.list span:nth-child(2) {
+
+
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="listWrap">
+
+        <ul class="list">
+
+            <li>
+                <span>User</span>
+                <span>Date</span>
+                <span>Pregnancies</span>
+                <span>Glucose</span>
+                <span>Blood Pressure</span>
+                <span>Skin Thickness</span>
+                <span>Insulin</span>
+                <span>BMI</span>
+                <span>Diabetes Pedigree Function</span>
+                <span>Age</span>
+                <span>Result</span>
+                <span></span>
+            </li>
+
+                {% block content %}
+               {% for dt in data %}
+
+                <li>
+                <span> {{ dt.user }}</span>
+                <span> {{ dt.date_created }}</span>
+                <span> {{ dt.Pregnancies }}</span>
+                <span> {{ dt.Glucose }}</span>
+                <span> {{ dt.Blood_Pressure }}</span>
+                <span> {{ dt.Skin_Thickness }}</span>
+                <span> {{ dt.Insulin }}</span>
+                <span> {{ dt.BMI }}</span>
+                <span> {{ dt.Diabetes_Pedigree_Function }}</span>
+                <span> {{ dt.Age }}</span>
+                <span> {{ dt.result_s }}</span>
+                    <span></span>
+                </li>
+                {% endfor %}
+
+
+                {% endblock %}
+
+
+        </ul>
+
+    </div>
+
+</div>
+</body>
+<script src="http://code.jquery.com/color/jquery.color-2.1.2.min.js" integrity="sha256-H28SdxWrZ387Ldn0qogCzFiUDDxfPiNIyJX7BECQkDE=" crossorigin="anonymous"></script>
+
+</html>
